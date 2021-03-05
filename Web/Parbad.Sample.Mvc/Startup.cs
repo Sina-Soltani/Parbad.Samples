@@ -1,8 +1,4 @@
-﻿using System;
-using System.Web.Mvc;
-using System.Web.Optimization;
-using System.Web.Routing;
-using Autofac;
+﻿using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Autofac.Integration.Mvc;
 using Microsoft.Owin;
@@ -10,6 +6,10 @@ using Owin;
 using Parbad.Builder;
 using Parbad.Sample.Mvc;
 using Parbad.Sample.Mvc.Controllers;
+using System;
+using System.Web.Mvc;
+using System.Web.Optimization;
+using System.Web.Routing;
 
 [assembly: OwinStartup(typeof(Startup))]
 

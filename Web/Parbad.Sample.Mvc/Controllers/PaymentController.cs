@@ -1,7 +1,7 @@
-﻿using System.Threading.Tasks;
-using System.Web.Mvc;
-using Parbad.Mvc;
+﻿using Parbad.Mvc;
 using Parbad.Sample.Mvc.Models;
+using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace Parbad.Sample.Mvc.Controllers
 {
@@ -28,13 +28,13 @@ namespace Parbad.Sample.Mvc.Controllers
                 return View(viewModel);
             }
 
-            var verifyUrl = Url.Action("Verify", "Payment", null, Request.Url.Scheme);
+            var callbackUrl = Url.Action("Verify", "Payment", null, Request.Url.Scheme);
 
             var result = await _onlinePayment.RequestAsync(invoice =>
             {
                 invoice
                     .SetAmount(viewModel.Amount)
-                    .SetCallbackUrl(verifyUrl)
+                    .SetCallbackUrl(callbackUrl)
                     .SetGateway(viewModel.Gateway.ToString());
 
                 if (viewModel.GenerateTrackingNumberAutomatically)
