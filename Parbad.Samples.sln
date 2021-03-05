@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Parbad.Sample.AspNetCore", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parbad.Sample.Mvc", "Web\Parbad.Sample.Mvc\Parbad.Sample.Mvc.csproj", "{3A52916C-717C-46AA-B8C1-2D193B1C065B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parbad.Sample.WebForm", "Web\Parbad.Sample.WebForm\Parbad.Sample.WebForm.csproj", "{C959900B-EAC6-46EE-97EA-09BD0B4428B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{3A52916C-717C-46AA-B8C1-2D193B1C065B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A52916C-717C-46AA-B8C1-2D193B1C065B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A52916C-717C-46AA-B8C1-2D193B1C065B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C959900B-EAC6-46EE-97EA-09BD0B4428B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C959900B-EAC6-46EE-97EA-09BD0B4428B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C959900B-EAC6-46EE-97EA-09BD0B4428B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C959900B-EAC6-46EE-97EA-09BD0B4428B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{92843B87-72B3-4B9B-9347-96D3470EC052} = {6CACA41F-06EE-403F-8C00-FCA77EEC25A8}
 		{3A52916C-717C-46AA-B8C1-2D193B1C065B} = {6CACA41F-06EE-403F-8C00-FCA77EEC25A8}
+		{C959900B-EAC6-46EE-97EA-09BD0B4428B1} = {6CACA41F-06EE-403F-8C00-FCA77EEC25A8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {76017626-3C61-41AA-8A56-198917F54160}
