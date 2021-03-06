@@ -1,7 +1,7 @@
 ## EntityFramework Core sample project for for Parbad Storage.
 
 **Steps to do before running the application**: 
-* Before running the application, add the migrations using this command:
+* Add the Migrations using:
 
 ```
 dotnet-ef migrations add "Your Migration Name" -c ParbadDataContext
