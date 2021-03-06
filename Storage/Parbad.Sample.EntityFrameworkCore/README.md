@@ -1,6 +1,6 @@
 ## EntityFramework Core sample project for for Parbad Storage.
 
-**Steps before running the application**: 
+**Steps to do before running the application**: 
 * Before running the application, add the migrations using this command:
 
 ```
