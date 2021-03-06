@@ -5,3 +5,5 @@
 ```
 dotnet-ef migrations add "Your Migration Name" -c ParbadDataContext
 ```
+
+Learn more about EntityFramework Core Storage: [Using EntityFramework Core Storage](https://github.com/Sina-Soltani/Parbad/wiki/Configuration#using-entityframework-core)
