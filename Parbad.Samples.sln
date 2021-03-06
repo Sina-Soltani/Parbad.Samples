@@ -3,9 +3,52 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{6CACA41F-06EE-403F-8C00-FCA77EEC25A8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Storage", "Storage", "{B26653D7-5ABB-4274-A8E9-F183D9547F47}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Parbad.Sample.AspNetCore", "Web\Parbad.Sample.AspNetCore\Parbad.Sample.AspNetCore.csproj", "{92843B87-72B3-4B9B-9347-96D3470EC052}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parbad.Sample.Mvc", "Web\Parbad.Sample.Mvc\Parbad.Sample.Mvc.csproj", "{3A52916C-717C-46AA-B8C1-2D193B1C065B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parbad.Sample.WebForm", "Web\Parbad.Sample.WebForm\Parbad.Sample.WebForm.csproj", "{C959900B-EAC6-46EE-97EA-09BD0B4428B1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EntityFrameworkCore", "EntityFrameworkCore", "{C3F1563D-9F21-4798-8589-E435A2237E51}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Parbad.Sample.EntityFrameworkCore", "Storage\Parbad.Sample.EntityFrameworkCore\Parbad.Sample.EntityFrameworkCore.csproj", "{709CED44-2387-442C-A0F8-C24D6A56AD22}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{92843B87-72B3-4B9B-9347-96D3470EC052}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92843B87-72B3-4B9B-9347-96D3470EC052}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92843B87-72B3-4B9B-9347-96D3470EC052}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92843B87-72B3-4B9B-9347-96D3470EC052}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A52916C-717C-46AA-B8C1-2D193B1C065B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A52916C-717C-46AA-B8C1-2D193B1C065B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A52916C-717C-46AA-B8C1-2D193B1C065B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A52916C-717C-46AA-B8C1-2D193B1C065B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C959900B-EAC6-46EE-97EA-09BD0B4428B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C959900B-EAC6-46EE-97EA-09BD0B4428B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C959900B-EAC6-46EE-97EA-09BD0B4428B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C959900B-EAC6-46EE-97EA-09BD0B4428B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{709CED44-2387-442C-A0F8-C24D6A56AD22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{709CED44-2387-442C-A0F8-C24D6A56AD22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{709CED44-2387-442C-A0F8-C24D6A56AD22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{709CED44-2387-442C-A0F8-C24D6A56AD22}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{92843B87-72B3-4B9B-9347-96D3470EC052} = {6CACA41F-06EE-403F-8C00-FCA77EEC25A8}
+		{3A52916C-717C-46AA-B8C1-2D193B1C065B} = {6CACA41F-06EE-403F-8C00-FCA77EEC25A8}
+		{C959900B-EAC6-46EE-97EA-09BD0B4428B1} = {6CACA41F-06EE-403F-8C00-FCA77EEC25A8}
+		{C3F1563D-9F21-4798-8589-E435A2237E51} = {B26653D7-5ABB-4274-A8E9-F183D9547F47}
+		{709CED44-2387-442C-A0F8-C24D6A56AD22} = {C3F1563D-9F21-4798-8589-E435A2237E51}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {76017626-3C61-41AA-8A56-198917F54160}
