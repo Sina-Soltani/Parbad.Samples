@@ -5,7 +5,7 @@
 ```
 dotnet-ef migrations add "Your Migration Name" -c ParbadDataContext
 ```
-Note: (In this sample the Migrations are already included. You can delete the folder and add them yourself)
+Note: In this sample the Migrations are already included. You can delete the folder and add them yourself.
 
 * Update your database using:
 ```
