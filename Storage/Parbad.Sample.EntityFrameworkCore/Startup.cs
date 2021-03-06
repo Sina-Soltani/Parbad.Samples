@@ -1,13 +1,15 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Parbad.Builder;
 using Parbad.Gateway.Mellat;
 using Parbad.Gateway.ParbadVirtual;
+using Parbad.Storage.EntityFrameworkCore.Builder;
 
-namespace Parbad.Sample.AspNetCore
+namespace Parbad.Sample.EntityFrameworkCore
 {
     public class Startup
     {
@@ -43,7 +45,29 @@ namespace Parbad.Sample.AspNetCore
                         .WithOptions(options => options.GatewayPath = "/MyVirtualGateway");
                 })
                 .ConfigureHttpContext(builder => builder.UseDefaultAspNetCore())
-                .ConfigureStorage(builder => builder.UseMemoryCache());
+                .ConfigureStorage(builder => builder.UseEfCore(options =>
+                {
+                    const string connectionString = "Connection String";
+                    var migrationsAssemblyName = typeof(Startup).Assembly.GetName().Name; // An Assembly where your migrations files are in it. In this sample the files are in the same project.
+
+                    options.ConfigureDbContext = db => db.UseSqlServer(connectionString, sql =>
+                    {
+                        sql.MigrationsAssembly(migrationsAssemblyName);
+                        sql.MigrationsHistoryTable("TABLE NAME");
+                    });
+
+                    ///////////////////////////////////////////////////
+                    // Optional Settings for Table names and schemas //
+                    ///////////////////////////////////////////////////
+
+                    //options.DefaultSchema = "Parbad";
+
+                    //options.PaymentTableOptions.Name = "TABLE NAME";
+                    //options.PaymentTableOptions.Schema = "SCHEMA NAME";
+
+                    //options.TransactionTableOptions.Name = "TABLE NAME";
+                    //options.TransactionTableOptions.Schema = "SCHEMA NAME";
+                }));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

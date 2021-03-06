@@ -17,6 +17,7 @@ namespace Parbad.Sample.WebForm
                         {
                             accounts.AddInMemory(account =>
                             {
+                                account.Name = "Mellat"; // optional if there is only 1 account for this gateway
                                 account.TerminalId = 123;
                                 account.UserName = "MyId";
                                 account.UserPassword = "MyPassword";
