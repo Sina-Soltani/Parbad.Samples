@@ -2,7 +2,7 @@
 
 **Steps to do before running the application**: 
 * Add the Migrations using:
-
+Note: (In this sample the Migrations are already included. You can delete the folder and add them yourself)
 ```
 dotnet-ef migrations add "Your Migration Name" -c ParbadDataContext
 ```
