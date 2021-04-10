@@ -14,6 +14,7 @@
         PayIr,
         IdPay,
         YekPay,
+        PayPing,
         ParbadVirtual
     }
 }

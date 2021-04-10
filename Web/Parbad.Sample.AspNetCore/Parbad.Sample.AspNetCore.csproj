@@ -6,10 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="Parbad" Version="3.6.0" />
-    <PackageReference Include="Parbad.AspNetCore" Version="1.1.0" />
-    <PackageReference Include="Parbad.Storage.Cache" Version="1.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Parbad" Version="3.7.0" />
+    <PackageReference Include="Parbad.AspNetCore" Version="1.2.0" />
+    <PackageReference Include="Parbad.Storage.Cache" Version="1.2.0" />
   </ItemGroup>
 
 </Project>

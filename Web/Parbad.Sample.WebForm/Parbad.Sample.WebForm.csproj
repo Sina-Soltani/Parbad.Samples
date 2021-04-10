@@ -123,14 +123,17 @@
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
-    <Reference Include="Parbad, Version=3.6.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Parbad.3.6.0\lib\netstandard2.0\Parbad.dll</HintPath>
+    <Reference Include="Parbad, Version=3.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Parbad.3.7.0\lib\netstandard2.0\Parbad.dll</HintPath>
     </Reference>
-    <Reference Include="Parbad.Owin, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Parbad.Owin.1.1.0\lib\net462\Parbad.Owin.dll</HintPath>
+    <Reference Include="Parbad.Owin, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Parbad.Owin.1.2.0\lib\net462\Parbad.Owin.dll</HintPath>
     </Reference>
-    <Reference Include="Parbad.Storage.Cache, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Parbad.Storage.Cache.1.1.0\lib\netstandard2.0\Parbad.Storage.Cache.dll</HintPath>
+    <Reference Include="Parbad.Storage.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Parbad.Storage.Abstractions.1.0.0\lib\netstandard2.0\Parbad.Storage.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Parbad.Storage.Cache, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Parbad.Storage.Cache.1.2.0\lib\netstandard2.0\Parbad.Storage.Cache.dll</HintPath>
     </Reference>
     <Reference Include="Remotion.Linq, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Remotion.Linq.2.2.0\lib\net45\Remotion.Linq.dll</HintPath>
