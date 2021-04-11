@@ -59,11 +59,11 @@ namespace Parbad.Sample.AspNetCore.Controllers
             var invoice = await _onlinePayment.FetchAsync();
 
             // Check if the invoice is new or it's already processed before.
-            if (invoice.Status == PaymentFetchResultStatus.AlreadyProcessed)
+            if (invoice.Status != PaymentFetchResultStatus.ReadyForVerifying)
             {
                 // You can also see if the invoice is already verified before.
                 var isAlreadyVerified = invoice.IsAlreadyVerified;
-                return Content("The payment is already processed before.");
+                return Content("The payment was not successful.");
             }
 
             // This is an example of cancelling an invoice when you think that the payment process must be stopped.
