@@ -58,19 +58,18 @@ namespace Parbad.Sample.Angular.Controllers
         {
             var invoice = await _onlinePayment.FetchAsync();
 
-            // Check if the invoice is new or it's already processed before.
-            if (invoice.Status != PaymentFetchResultStatus.ReadyForVerifying)
+            var clientAppUrl = "http://localhost:5000/payment-result";
+
+            if (invoice.Status == PaymentFetchResultStatus.ReadyForVerifying)
+            {
+                var verifyResult = await _onlinePayment.VerifyAsync(invoice);
+
+                _orderRepository.UpdateOrder(verifyResult.TrackingNumber, verifyResult.IsSucceed, verifyResult.Message, verifyResult.TransactionCode);
+            }
+            else
             {
                 _orderRepository.OrderFailed(invoice.TrackingNumber, invoice.Message);
-
-                return Ok(invoice);
             }
-
-            var verifyResult = await _onlinePayment.VerifyAsync(invoice);
-
-            _orderRepository.UpdateOrder(verifyResult.TrackingNumber, verifyResult.IsSucceed, verifyResult.Message, verifyResult.TransactionCode);
-
-            var clientAppUrl = "http://localhost:5000/payment-result";
 
             return Redirect(clientAppUrl);
         }
