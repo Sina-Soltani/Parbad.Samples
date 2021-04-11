@@ -16,6 +16,7 @@ export class PaymentRequestComponent {
     this.http = http;
     this.model = new PayViewModel();
     this.model.generateTrackingNumberAutomatically = true;
+    this.model.selectedGateway = 'ParbadVirtual';
   }
 
   pay() {
