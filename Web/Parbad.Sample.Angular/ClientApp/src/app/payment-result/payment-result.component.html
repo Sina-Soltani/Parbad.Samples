@@ -1,0 +1,32 @@
+<h1 id="tableLabel">Payment Result</h1>
+
+<table class="table">
+  <tr>
+    <td>Tracking number</td>
+    <td>{{ model.trackingNumber }}</td>
+  </tr>
+  <tr>
+    <td>Amount</td>
+    <td>{{ model.amount }}</td>
+  </tr>
+  <tr>
+    <td>Gateway</td>
+    <td>{{ model.gatewayName }}</td>
+  </tr>
+  <tr>
+    <td>Gateway account name</td>
+    <td>{{ model.gatewayAccountName}}</td>
+  </tr>
+  <tr>
+    <td>Transaction code</td>
+    <td>{{model.transactionCode}}</td>
+  </tr>
+  <tr>
+    <td>Is paid</td>
+    <td>{{model.isPaid}}</td>
+  </tr>
+  <tr>
+    <td>Message</td>
+    <td class="text-lg">{{model.message}}</td>
+  </tr>
+</table>
