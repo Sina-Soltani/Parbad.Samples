@@ -1,22 +1,28 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-payment-request',
   templateUrl: './payment-request.component.html'
 })
-export class PaymentRequestComponent {
+export class PaymentRequestComponent implements OnInit {
   private baseUrl: string;
   private http: HttpClient;
 
   model: PayViewModel;
+  gateways: Gateway[];
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     this.baseUrl = baseUrl;
     this.http = http;
     this.model = new PayViewModel();
     this.model.generateTrackingNumberAutomatically = true;
-    this.model.selectedGateway = 'ParbadVirtual';
+  }
+
+  ngOnInit(): void {
+    this.http.get<Gateway[]>(this.baseUrl + 'payment/gateways').subscribe(result => {
+      this.gateways = result;
+    }, error => console.error(error));
   }
 
   pay() {
@@ -26,23 +32,23 @@ export class PaymentRequestComponent {
         return;
       }
 
-      this.transportToGateway(result.gatewayTransporter.descriptor);
+      this.transportToGateway(result.transporter);
 
     }, error => console.error(error));
   }
 
-  transportToGateway(descriptor: GatewayTransporterDescriptor) {
-    if (descriptor.type === TransportType.Redirect) {
+  transportToGateway(transporter: GatewayTransporter) {
+    if (transporter.type === TransportType.Redirect) {
       // Transporting with Redirect
-      window.location.href = descriptor.url;
+      window.location.href = transporter.url;
     } else {
       // Transporting with Form
       const form = document.createElement('form');
       form.setAttribute('id', 'myForm');
       form.setAttribute('method', 'post');
-      form.setAttribute('action', descriptor.url);
+      form.setAttribute('action', transporter.url);
 
-      descriptor.form.forEach(item => {
+      transporter.form.forEach(item => {
         const input = document.createElement('input');
         input.setAttribute('type', 'hidden');
         input.setAttribute('name', item.key);
@@ -60,20 +66,21 @@ class PayViewModel {
   trackingNumber: number;
   generateTrackingNumberAutomatically: boolean;
   amount: number;
-  selectedGateway: string;
+  selectedGateway: number;
+}
+
+interface Gateway {
+  name: string;
+  value: number;
 }
 
 interface PaymentRequestResultViewModel {
   isSucceed: boolean;
   message: string;
-  gatewayTransporter: GatewayTransporter;
+  transporter: GatewayTransporter;
 }
 
 interface GatewayTransporter {
-  descriptor: GatewayTransporterDescriptor;
-}
-
-interface GatewayTransporterDescriptor {
   type: TransportType;
   url: string;
   form: KeyValuePair[];

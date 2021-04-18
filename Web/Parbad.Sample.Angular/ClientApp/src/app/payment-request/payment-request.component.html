@@ -19,21 +19,8 @@
     <label>Selected Gateway</label>
     <select [(ngModel)]="model.selectedGateway" class="form-control">
       <option>Select a gateway...</option>
-      <option value="Saman">Saman</option>
-      <option value="Mellat">Mellat</option>
-      <option value="Parsian">Parsian</option>
-      <option value="Pasargad">Pasargad</option>
-      <option value="IranKish">IranKish</option>
-      <option value="Melli">Melli</option>
-      <option value="AsanPardakht">AsanPardakht</option>
-      <option value="Sepehr">Sepehr</option>
-      <option value="ZarinPal">ZarinPal</option>
-      <option value="PayIr">PayIr</option>
-      <option value="IdPay">IdPay</option>
-      <option value="YekPay">YekPay</option>
-      <option value="PayPing">PayPing</option>
-      <option value="ParbadVirtual">ParbadVirtual</option>
-    </select>
+      <option [value]="gateway.value" *ngFor="let gateway of gateways">{{ gateway.name }}</option>
+</select>
   </div>
   <button (click)="pay()" type="button" class="btn btn-primary">Pay</button>
 </div>
