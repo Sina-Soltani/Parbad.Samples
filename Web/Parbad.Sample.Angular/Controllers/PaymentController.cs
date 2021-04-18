@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Parbad.Sample.Angular.Models;
 using Parbad.Sample.Angular.Repositories;
+using Parbad.Sample.Shared;
 using System.Threading.Tasks;
 
 namespace Parbad.Sample.Angular.Controllers
@@ -28,7 +28,7 @@ namespace Parbad.Sample.Angular.Controllers
                 invoice
                     .SetAmount(viewModel.Amount)
                     .SetCallbackUrl(callbackUrl)
-                    .SetGateway(viewModel.SelectedGateway);
+                    .SetGateway(viewModel.SelectedGateway.ToString());
 
                 if (viewModel.GenerateTrackingNumberAutomatically)
                 {
@@ -51,9 +51,8 @@ namespace Parbad.Sample.Angular.Controllers
             return Ok(result);
         }
 
-        // It's better to set no HttpMethods(HttpGet, HttpPost, etc.) for the Verify action,
-        // because the banks send their information with different HTTP methods
         [Route("verify")]
+        [HttpGet, HttpPost]
         public async Task<IActionResult> Verify()
         {
             var invoice = await _onlinePayment.FetchAsync();

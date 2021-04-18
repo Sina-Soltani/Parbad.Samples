@@ -1,5 +1,5 @@
 ﻿using Parbad.Mvc;
-using Parbad.Sample.Mvc.Models;
+using Parbad.Sample.Shared;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
@@ -17,11 +17,11 @@ namespace Parbad.Sample.Mvc.Controllers
         [HttpGet]
         public ActionResult Pay()
         {
-            return View(new RequestViewModel());
+            return View(new PayViewModel());
         }
 
         [HttpPost]
-        public async Task<ActionResult> Pay(RequestViewModel viewModel)
+        public async Task<ActionResult> Pay(PayViewModel viewModel)
         {
             if (!ModelState.IsValid)
             {
@@ -35,7 +35,7 @@ namespace Parbad.Sample.Mvc.Controllers
                 invoice
                     .SetAmount(viewModel.Amount)
                     .SetCallbackUrl(callbackUrl)
-                    .SetGateway(viewModel.Gateway.ToString());
+                    .SetGateway(viewModel.SelectedGateway.ToString());
 
                 if (viewModel.GenerateTrackingNumberAutomatically)
                 {
@@ -57,8 +57,7 @@ namespace Parbad.Sample.Mvc.Controllers
             return View("PayRequestError", result);
         }
 
-        // It's better to set no HttpMethods(HttpGet, HttpPost, etc.) for the Verify action,
-        // because the banks send their information with different HTTP methods
+        [HttpGet, HttpPost]
         public async Task<ActionResult> Verify()
         {
             var invoice = await _onlinePayment.FetchAsync();
