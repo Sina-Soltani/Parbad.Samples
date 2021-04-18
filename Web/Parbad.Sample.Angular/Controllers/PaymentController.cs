@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Parbad.Sample.Angular.Repositories;
 using Parbad.Sample.Shared;
+using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Parbad.Sample.Angular.Controllers
@@ -48,7 +50,12 @@ namespace Parbad.Sample.Angular.Controllers
                 GatewayAccountName = result.GatewayAccountName
             });
 
-            return Ok(result);
+            return Ok(new
+            {
+                result.IsSucceed,
+                result.Message,
+                Transporter = CreateTransporterForClientApp(result.GatewayTransporter)
+            });
         }
 
         [Route("verify")]
@@ -71,6 +78,37 @@ namespace Parbad.Sample.Angular.Controllers
             }
 
             return Redirect(clientAppUrl);
+        }
+
+        [HttpGet("gateways")]
+        public IActionResult GetGateways()
+        {
+            var gateways = Enum.GetValues<Gateways>().Select(@enum => new
+            {
+                Name = @enum.ToString(),
+                Value = (int)@enum
+            });
+
+            return Ok(gateways);
+        }
+
+        private static object CreateTransporterForClientApp(IGatewayTransporter gatewayTransporter)
+        {
+            if (gatewayTransporter?.Descriptor == null) return null;
+
+            // ClientApps can use Javascript to create a <form> using this data
+            var form = gatewayTransporter.Descriptor.Form?.Select(item => new
+            {
+                item.Key,
+                item.Value
+            });
+
+            return new
+            {
+                gatewayTransporter.Descriptor.Type,
+                gatewayTransporter.Descriptor.Url,
+                Form = form
+            };
         }
     }
 }
