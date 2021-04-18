@@ -9,3 +9,4 @@
   * [Angular](https://github.com/Sina-Soltani/Parbad.Samples/tree/master/Web/Parbad.Sample.Angular)
 * Storage
   * [EntityFrameowrk Core](https://github.com/Sina-Soltani/Parbad.Samples/tree/master/Storage/Parbad.Sample.EntityFrameworkCore)
+  * [Custom Storage](https://github.com/Sina-Soltani/Parbad.Samples/tree/master/Storage/Parbad.Sample.CustomStorage)
