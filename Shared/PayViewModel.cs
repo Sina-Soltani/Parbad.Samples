@@ -13,6 +13,6 @@ namespace Parbad.Sample.Shared
         public decimal Amount { get; set; }
 
         [Display(Name = "Gateway")]
-        public Gateways SelectedGateway { get; set; }
+        public Gateways SelectedGateway { get; set; } = Gateways.ParbadVirtual;
     }
 }

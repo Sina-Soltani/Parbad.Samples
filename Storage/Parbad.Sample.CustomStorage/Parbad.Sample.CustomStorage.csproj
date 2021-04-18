@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Parbad" Version="3.7.0" />
+    <PackageReference Include="Parbad.AspNetCore" Version="1.2.0" />
+    <PackageReference Include="Parbad.Storage.EntityFrameworkCore" Version="1.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\Parbad.Sample.Shared.csproj" />
+  </ItemGroup>
+
+</Project>
