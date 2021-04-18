@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Parbad.Sample.AspNetCore.Models
+namespace Parbad.Sample.Shared
 {
     public class RefundViewModel
     {

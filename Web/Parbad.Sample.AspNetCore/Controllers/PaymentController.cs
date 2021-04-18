@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Parbad.AspNetCore;
-using Parbad.Sample.AspNetCore.Models;
+using Parbad.Sample.Shared;
 using System.Threading.Tasks;
 
 namespace Parbad.Sample.AspNetCore.Controllers
@@ -52,8 +52,7 @@ namespace Parbad.Sample.AspNetCore.Controllers
             return View("PayRequestError", result);
         }
 
-        // It's better to set no HttpMethods(HttpGet, HttpPost, etc.) for the Verify action,
-        // because the banks send their information with different HTTP methods
+        [HttpGet, HttpPost]
         public async Task<IActionResult> Verify()
         {
             var invoice = await _onlinePayment.FetchAsync();

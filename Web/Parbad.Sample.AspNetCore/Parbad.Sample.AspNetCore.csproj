@@ -12,4 +12,8 @@
     <PackageReference Include="Parbad.Storage.Cache" Version="1.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\Parbad.Sample.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

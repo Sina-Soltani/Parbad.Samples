@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Parbad.Sample.Shared;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Parbad.Sample.WebForm.Models;
 
 namespace Parbad.Sample.WebForm
 {

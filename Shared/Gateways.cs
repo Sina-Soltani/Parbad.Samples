@@ -1,4 +1,4 @@
-﻿namespace Parbad.Sample.Mvc.Models
+﻿namespace Parbad.Sample.Shared
 {
     public enum Gateways
     {

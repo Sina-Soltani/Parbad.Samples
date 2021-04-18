@@ -65,8 +65,6 @@ class PayViewModel {
 
 interface PaymentRequestResultViewModel {
   isSucceed: boolean;
-  trackingNumber: number;
-  amount: number;
   message: string;
   gatewayTransporter: GatewayTransporter;
 }
