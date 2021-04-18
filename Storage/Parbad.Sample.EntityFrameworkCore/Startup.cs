@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Parbad.Builder;
 using Parbad.Gateway.Mellat;
 using Parbad.Gateway.ParbadVirtual;
@@ -80,7 +79,7 @@ namespace Parbad.Sample.EntityFrameworkCore
 
             app.UseEndpoints(builder => builder.MapDefaultControllerRoute());
 
-            app.UseParbadVirtualGatewayWhenDeveloping();
+            app.UseParbadVirtualGateway();
         }
     }
 }

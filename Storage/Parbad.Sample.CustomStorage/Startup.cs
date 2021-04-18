@@ -56,7 +56,7 @@ namespace Parbad.Sample.CustomStorage
 
             app.UseEndpoints(builder => builder.MapDefaultControllerRoute());
 
-            app.UseParbadVirtualGatewayWhenDeveloping();
+            app.UseParbadVirtualGateway();
         }
     }
 }
