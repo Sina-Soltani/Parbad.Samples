@@ -1,4 +1,4 @@
-# Parbad Sample projects.
+# [Parbad](https://github.com/Sina-Soltani/Parbad) Sample projects.
 
 [![.NET](https://github.com/Sina-Soltani/Parbad.Samples/actions/workflows/dotnet.yml/badge.svg?branch=master)](https://github.com/Sina-Soltani/Parbad.Samples/actions/workflows/dotnet.yml)
 

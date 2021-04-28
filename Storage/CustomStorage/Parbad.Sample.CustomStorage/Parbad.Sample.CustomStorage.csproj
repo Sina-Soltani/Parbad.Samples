@@ -12,7 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Shared\Parbad.Sample.Shared.csproj" />
+    <ProjectReference Include="..\..\..\Shared\Parbad.Sample.Shared.csproj" />
+    <ProjectReference Include="..\Parbad.Sample.CustomStorage.Infrastructure\Parbad.Sample.CustomStorage.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
