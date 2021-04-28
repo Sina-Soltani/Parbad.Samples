@@ -28,7 +28,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Storage", "Storage", "{B266
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Parbad.Sample.EntityFrameworkCore", "Storage\Parbad.Sample.EntityFrameworkCore\Parbad.Sample.EntityFrameworkCore.csproj", "{709CED44-2387-442C-A0F8-C24D6A56AD22}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Parbad.Sample.CustomStorage", "Storage\Parbad.Sample.CustomStorage\Parbad.Sample.CustomStorage.csproj", "{E3CE1E3E-030F-473D-AC78-A6293670A46E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CustomStorage", "CustomStorage", "{F3E1C44E-6D91-4EF5-AA47-2C9AB2FEA199}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Parbad.Sample.CustomStorage", "Storage\CustomStorage\Parbad.Sample.CustomStorage\Parbad.Sample.CustomStorage.csproj", "{E3CE1E3E-030F-473D-AC78-A6293670A46E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parbad.Sample.CustomStorage.Infrastructure", "Storage\CustomStorage\Parbad.Sample.CustomStorage.Infrastructure\Parbad.Sample.CustomStorage.Infrastructure.csproj", "{24D38C9B-1759-480C-BEEE-537A0174A322}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -64,6 +68,10 @@ Global
 		{E3CE1E3E-030F-473D-AC78-A6293670A46E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3CE1E3E-030F-473D-AC78-A6293670A46E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3CE1E3E-030F-473D-AC78-A6293670A46E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24D38C9B-1759-480C-BEEE-537A0174A322}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24D38C9B-1759-480C-BEEE-537A0174A322}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24D38C9B-1759-480C-BEEE-537A0174A322}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24D38C9B-1759-480C-BEEE-537A0174A322}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,7 +83,9 @@ Global
 		{C959900B-EAC6-46EE-97EA-09BD0B4428B1} = {6CACA41F-06EE-403F-8C00-FCA77EEC25A8}
 		{0F3E3CE9-A10E-4EF9-A657-25F2F09C9B32} = {6CACA41F-06EE-403F-8C00-FCA77EEC25A8}
 		{709CED44-2387-442C-A0F8-C24D6A56AD22} = {B26653D7-5ABB-4274-A8E9-F183D9547F47}
-		{E3CE1E3E-030F-473D-AC78-A6293670A46E} = {B26653D7-5ABB-4274-A8E9-F183D9547F47}
+		{F3E1C44E-6D91-4EF5-AA47-2C9AB2FEA199} = {B26653D7-5ABB-4274-A8E9-F183D9547F47}
+		{E3CE1E3E-030F-473D-AC78-A6293670A46E} = {F3E1C44E-6D91-4EF5-AA47-2C9AB2FEA199}
+		{24D38C9B-1759-480C-BEEE-537A0174A322} = {F3E1C44E-6D91-4EF5-AA47-2C9AB2FEA199}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {76017626-3C61-41AA-8A56-198917F54160}

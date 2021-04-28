@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Parbad.Builder;
 using Parbad.Gateway.Mellat;
 using Parbad.Gateway.ParbadVirtual;
-using Parbad.Sample.CustomStorage.Storage;
+using Parbad.Sample.CustomStorage.Infrastructure;
 
 namespace Parbad.Sample.CustomStorage
 {

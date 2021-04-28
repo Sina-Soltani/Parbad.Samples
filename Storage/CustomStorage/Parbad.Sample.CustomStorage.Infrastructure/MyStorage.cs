@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Parbad.Sample.CustomStorage.Storage
+namespace Parbad.Sample.CustomStorage.Infrastructure
 {
     public class MyStorage : IStorage
     {
