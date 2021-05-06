@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <LangVersion>9</LangVersion>
+    <UserSecretsId>3b7ad186-5c18-4f73-b7b1-a6dda1dd99b1</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,7 +15,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Parbad" Version="3.7.0" />
     <PackageReference Include="Parbad.AspNetCore" Version="1.2.0" />
-    <PackageReference Include="Parbad.Storage.EntityFrameworkCore" Version="1.3.0" />
+    <PackageReference Include="Parbad.Storage.EntityFrameworkCore" Version="1.3.1" />
   </ItemGroup>
 
   <ItemGroup>
