@@ -14,7 +14,7 @@ namespace Parbad.Sample.CustomStorage.Infrastructure
         private static readonly IList<Payment> StaticPayments = new List<Payment>();
         private static readonly IList<Transaction> StaticTransactions = new List<Transaction>();
 
-        public Task CreatePaymentAsync(Payment payment, CancellationToken cancellationToken = new CancellationToken())
+        public Task CreatePaymentAsync(Payment payment, CancellationToken cancellationToken = default)
         {
             payment.Id = GenerateNewPaymentId();
 
@@ -23,7 +23,7 @@ namespace Parbad.Sample.CustomStorage.Infrastructure
             return Task.CompletedTask;
         }
 
-        public Task UpdatePaymentAsync(Payment payment, CancellationToken cancellationToken = new CancellationToken())
+        public Task UpdatePaymentAsync(Payment payment, CancellationToken cancellationToken = default)
         {
             var record = StaticPayments.SingleOrDefault(model => model.Id == payment.Id);
 
@@ -36,7 +36,7 @@ namespace Parbad.Sample.CustomStorage.Infrastructure
             return Task.CompletedTask;
         }
 
-        public Task DeletePaymentAsync(Payment payment, CancellationToken cancellationToken = new CancellationToken())
+        public Task DeletePaymentAsync(Payment payment, CancellationToken cancellationToken = default)
         {
             var record = StaticPayments.SingleOrDefault(model => model.Id == payment.Id);
 
@@ -47,7 +47,7 @@ namespace Parbad.Sample.CustomStorage.Infrastructure
             return Task.CompletedTask;
         }
 
-        public Task CreateTransactionAsync(Transaction transaction, CancellationToken cancellationToken = new CancellationToken())
+        public Task CreateTransactionAsync(Transaction transaction, CancellationToken cancellationToken = default)
         {
             transaction.Id = GenerateNewTransactionId();
 
@@ -56,7 +56,7 @@ namespace Parbad.Sample.CustomStorage.Infrastructure
             return Task.CompletedTask;
         }
 
-        public Task UpdateTransactionAsync(Transaction transaction, CancellationToken cancellationToken = new CancellationToken())
+        public Task UpdateTransactionAsync(Transaction transaction, CancellationToken cancellationToken = default)
         {
             var record = StaticTransactions.SingleOrDefault(model => model.Id == transaction.Id);
 
@@ -67,7 +67,7 @@ namespace Parbad.Sample.CustomStorage.Infrastructure
             return Task.CompletedTask;
         }
 
-        public Task DeleteTransactionAsync(Transaction transaction, CancellationToken cancellationToken = new CancellationToken())
+        public Task DeleteTransactionAsync(Transaction transaction, CancellationToken cancellationToken = default)
         {
             var record = StaticTransactions.SingleOrDefault(model => model.Id == transaction.Id);
 
