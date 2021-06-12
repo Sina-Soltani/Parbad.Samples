@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-payment-result',
@@ -8,17 +9,22 @@ import { HttpClient } from '@angular/common/http';
 export class PaymentResultComponent implements OnInit {
   private baseUrl: string;
   private http: HttpClient;
+  private route: ActivatedRoute;
 
   model: PaymentVerifyResultViewModel;
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+  constructor(http: HttpClient, route: ActivatedRoute, @Inject('BASE_URL') baseUrl: string) {
     this.baseUrl = baseUrl;
     this.http = http;
+    this.route = route;
   }
 
   ngOnInit(): void {
     this.model = {} as PaymentVerifyResultViewModel;
-    this.http.get<PaymentVerifyResultViewModel>(this.baseUrl + 'order').subscribe(result => {
+
+    const orderId = this.route.snapshot.paramMap.get('id');
+    
+    this.http.get<PaymentVerifyResultViewModel>(this.baseUrl + `order/${orderId}`).subscribe(result => {
       this.model = result;
     }, error => console.error(error));
   }

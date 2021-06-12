@@ -25,7 +25,7 @@ import { PaymentResultComponent } from './payment-result/payment-result.componen
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'payment-request', component: PaymentRequestComponent },
-      { path: 'payment-result', component: PaymentResultComponent },
+      { path: 'payment-result/:id', component: PaymentResultComponent },
     ])
   ],
   providers: [],

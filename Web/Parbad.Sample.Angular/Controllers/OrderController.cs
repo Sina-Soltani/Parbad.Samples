@@ -14,10 +14,10 @@ namespace Parbad.Sample.Angular.Controllers
             _orderRepository = orderRepository;
         }
 
-        [HttpGet]
-        public IActionResult Result()
+        [HttpGet("{id}")]
+        public IActionResult Result([FromRoute] int id)
         {
-            var order = _orderRepository.GetOrder();
+            var order = _orderRepository.GetOrderById(id);
 
             return Ok(order);
         }

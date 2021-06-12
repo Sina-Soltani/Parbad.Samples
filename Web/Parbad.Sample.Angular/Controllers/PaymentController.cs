@@ -44,7 +44,7 @@ namespace Parbad.Sample.Angular.Controllers
 
             _orderRepository.AddOrder(new Order
             {
-                TrackingNumber = result.TrackingNumber,
+                PaymentTrackingNumber = result.TrackingNumber,
                 Amount = result.Amount,
                 GatewayName = result.GatewayName,
                 GatewayAccountName = result.GatewayAccountName
@@ -64,18 +64,20 @@ namespace Parbad.Sample.Angular.Controllers
         {
             var invoice = await _onlinePayment.FetchAsync();
 
-            var clientAppUrl = "http://localhost:5000/payment-result";
+            var order = _orderRepository.GetOrderByPaymentTrackingNumber(invoice.TrackingNumber);
 
             if (invoice.Status == PaymentFetchResultStatus.ReadyForVerifying)
             {
                 var verifyResult = await _onlinePayment.VerifyAsync(invoice);
 
-                _orderRepository.UpdateOrder(verifyResult.TrackingNumber, verifyResult.IsSucceed, verifyResult.Message, verifyResult.TransactionCode);
+                _orderRepository.UpdateOrder(order, verifyResult.IsSucceed, verifyResult.Message, verifyResult.TransactionCode);
             }
             else
             {
-                _orderRepository.OrderFailed(invoice.TrackingNumber, invoice.Message);
+                _orderRepository.OrderFailed(order, invoice.Message);
             }
+
+            var clientAppUrl = "http://localhost:5000/payment-result/" + order.Id;
 
             return Redirect(clientAppUrl);
         }

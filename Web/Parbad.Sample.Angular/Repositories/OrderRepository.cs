@@ -7,11 +7,13 @@ namespace Parbad.Sample.Angular.Repositories
     {
         void AddOrder(Order order);
 
-        Order GetOrder();
+        Order GetOrderById(int id);
 
-        void OrderFailed(long trackingNumber, string message);
+        Order GetOrderByPaymentTrackingNumber(long paymentTrackingNumber);
 
-        void UpdateOrder(long trackingNumber, bool isSucceed, string message, string transactionCode);
+        void OrderFailed(Order order, string message);
+
+        void UpdateOrder(Order order, bool isSucceed, string message, string transactionCode);
     }
 
     public class OrderRepository : IOrderRepository
@@ -25,39 +27,53 @@ namespace Parbad.Sample.Angular.Repositories
 
         public void AddOrder(Order order)
         {
+            order.Id = GenerateNewId();
+
             _orders.Add(order);
         }
 
-        public Order GetOrder()
+        public Order GetOrderById(int id)
         {
-            return _orders.LastOrDefault();
+            return _orders.Single(model => model.Id == id);
         }
 
-        public void OrderFailed(long trackingNumber, string message)
+        public Order GetOrderByPaymentTrackingNumber(long paymentTrackingNumber)
         {
-            var order = _orders.SingleOrDefault(model => model.TrackingNumber == trackingNumber);
+            return _orders.Single(model => model.PaymentTrackingNumber == paymentTrackingNumber);
+        }
 
-            if (order == null) return;
-
+        public void OrderFailed(Order order, string message)
+        {
             order.IsPaid = false;
             order.Message = message;
         }
 
-        public void UpdateOrder(long trackingNumber, bool isSucceed, string message, string transactionCode)
+        public void UpdateOrder(Order order, bool isSucceed, string message, string transactionCode)
         {
-            var order = _orders.SingleOrDefault(model => model.TrackingNumber == trackingNumber);
-
-            if (order == null) return;
-
             order.IsPaid = isSucceed;
             order.TransactionCode = transactionCode;
             order.Message = message;
         }
+
+        private int GenerateNewId()
+        {
+            if (_orders.Any())
+            {
+                return _orders.Max(model => model.Id) + 1;
+            }
+
+            return 1;
+        }
     }
 
+    /// <summary>
+    /// Order is a simple domain object that keeps the information of order and payment in it.
+    /// </summary>
     public class Order
     {
-        public long TrackingNumber { get; set; }
+        public int Id { get; set; }
+
+        public long PaymentTrackingNumber { get; set; }
 
         public decimal Amount { get; set; }
 
