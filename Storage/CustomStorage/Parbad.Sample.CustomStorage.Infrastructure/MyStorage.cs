@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace Parbad.Sample.CustomStorage.Infrastructure
 {
+    /// <summary>
+    /// This is a sample Storage that saves/loads the payment data inside a static IList<> just for presentation.
+    /// </summary>
     public class MyStorage : IStorage
     {
         // In-Memory data
