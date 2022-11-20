@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
     <IsPackable>false</IsPackable>
@@ -13,11 +13,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.5" />
-    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="5.0.4" />
-    <PackageReference Include="Parbad" Version="3.7.0" />
-    <PackageReference Include="Parbad.AspNetCore" Version="1.2.0" />
-    <PackageReference Include="Parbad.Storage.Cache" Version="1.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="7.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="7.0.0" />
+    <PackageReference Include="Parbad" Version="3.9.0" />
+    <PackageReference Include="Parbad.AspNetCore" Version="1.3.0" />
+    <PackageReference Include="Parbad.Gateway.ZarinPal" Version="1.4.0" />
+    <PackageReference Include="Parbad.Storage.Cache" Version="1.3.0" />
   </ItemGroup>
 
   <ItemGroup>

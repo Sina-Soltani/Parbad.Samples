@@ -94,5 +94,19 @@ namespace Parbad.Sample.WebForm
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LblMessage;
+
+        /// <summary>
+        /// Master property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new Parbad.Sample.WebForm.SiteMaster Master
+        {
+            get
+            {
+                return ((Parbad.Sample.WebForm.SiteMaster)(base.Master));
+            }
+        }
     }
 }
