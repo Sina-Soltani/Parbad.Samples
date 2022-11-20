@@ -12,12 +12,15 @@ jobs:
     runs-on: [windows-latest]
 
     steps:
+    - name: Checkout
     - uses: actions/checkout@v2
-    - name: Setup MS Build
-      uses: microsoft/setup-msbuild@v1
+    - name: Setup Dotnet
+    - uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: '7.0.x'
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1.0.5
     - name: Restore
       run: nuget restore Parbad.Samples.sln
     - name: Build
-      run: msbuild Parbad.Samples.sln
+      run: dotnet build Parbad.Samples.sln
