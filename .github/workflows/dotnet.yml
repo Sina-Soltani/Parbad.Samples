@@ -19,7 +19,7 @@ jobs:
       with:
         dotnet-version: '7.0.x'
     - name: Setup NuGet
-      uses: NuGet/setup-nuget@v1.0.5
+    - uses: NuGet/setup-nuget@v1.0.5
     - name: Restore
       run: nuget restore Parbad.Samples.sln
     - name: Build
