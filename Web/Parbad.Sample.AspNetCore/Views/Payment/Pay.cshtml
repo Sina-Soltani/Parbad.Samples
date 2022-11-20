@@ -22,8 +22,10 @@
     </div>
     <div class="form-group">
         <label asp-for="SelectedGateway"></label>
-        <select asp-for="SelectedGateway" asp-items="Html.GetEnumSelectList<Gateways>()" class="form-control">
+        <select asp-for="SelectedGateway" class="form-control">
             <option>Select a gateway...</option>
+            <option value="ParbadVirtual">ParbadVirtual</option>
+            <option value="ZarinPal">ZarinPal</option>
         </select>
         <span asp-validation-for="SelectedGateway" class="text-danger"></span>
     </div>

@@ -34,6 +34,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Parbad.Sample.CustomStorage
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parbad.Sample.CustomStorage.Infrastructure", "Storage\CustomStorage\Parbad.Sample.CustomStorage.Infrastructure\Parbad.Sample.CustomStorage.Infrastructure.csproj", "{24D38C9B-1759-480C-BEEE-537A0174A322}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parbad.Sample.Docker", "Web\Parbad.Sample.Docker\Parbad.Sample.Docker.csproj", "{997C26F2-24F7-4878-94CB-EFCB34174CEE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,6 +74,10 @@ Global
 		{24D38C9B-1759-480C-BEEE-537A0174A322}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24D38C9B-1759-480C-BEEE-537A0174A322}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24D38C9B-1759-480C-BEEE-537A0174A322}.Release|Any CPU.Build.0 = Release|Any CPU
+		{997C26F2-24F7-4878-94CB-EFCB34174CEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{997C26F2-24F7-4878-94CB-EFCB34174CEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{997C26F2-24F7-4878-94CB-EFCB34174CEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{997C26F2-24F7-4878-94CB-EFCB34174CEE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -86,6 +92,7 @@ Global
 		{F3E1C44E-6D91-4EF5-AA47-2C9AB2FEA199} = {B26653D7-5ABB-4274-A8E9-F183D9547F47}
 		{E3CE1E3E-030F-473D-AC78-A6293670A46E} = {F3E1C44E-6D91-4EF5-AA47-2C9AB2FEA199}
 		{24D38C9B-1759-480C-BEEE-537A0174A322} = {F3E1C44E-6D91-4EF5-AA47-2C9AB2FEA199}
+		{997C26F2-24F7-4878-94CB-EFCB34174CEE} = {6CACA41F-06EE-403F-8C00-FCA77EEC25A8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {76017626-3C61-41AA-8A56-198917F54160}

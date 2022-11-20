@@ -2,6 +2,7 @@
 using Parbad.AspNetCore;
 using Parbad.Sample.Shared;
 using System.Threading.Tasks;
+using Parbad.Gateway.ZarinPal;
 
 namespace Parbad.Sample.AspNetCore.Controllers
 {
@@ -28,8 +29,10 @@ namespace Parbad.Sample.AspNetCore.Controllers
             var result = await _onlinePayment.RequestAsync(invoice =>
             {
                 invoice
-                    .SetAmount(viewModel.Amount)
+                    .SetZarinPalData("Description")
                     .SetCallbackUrl(callbackUrl)
+                    .UseAutoIncrementTrackingNumber()
+                    .SetAmount(1000)
                     .SetGateway(viewModel.SelectedGateway.ToString());
 
                 if (viewModel.GenerateTrackingNumberAutomatically)
