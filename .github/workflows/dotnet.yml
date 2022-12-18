@@ -24,10 +24,8 @@ jobs:
         node-version: 14
     - name: Restore
       run: dotnet restore
-    - name: test
-      run: ls
-#    - name: Build Parbad.Sample.EntityFrameworkCore
-#      run: dotnet build Storage\Parbad.Sample.EntityFrameworkCore\Parbad.Sample.EntityFrameworkCore.csproj
+    - name: Build Parbad.Sample.EntityFrameworkCore
+      run: dotnet build Storage/Parbad.Sample.EntityFrameworkCore/Parbad.Sample.EntityFrameworkCore.csproj
 #    - name: Build the Docker image
 #      run: |
 #        cd Web/Parbad.Sample.Docker
