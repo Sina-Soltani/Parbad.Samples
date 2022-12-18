@@ -34,3 +34,13 @@ jobs:
       run: |
         cd Web/Parbad.Sample.Docker
         docker build . -t ssoltani/parbad.samples.aspnetcore
+    - name: Docker login
+      #if: github.event_name != 'pull_request'
+      uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
+      with:
+        username: ssoltani
+        password: ${{ secrets.DOCKER_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v3
+      with:
+        push: true
