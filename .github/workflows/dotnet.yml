@@ -11,20 +11,25 @@ jobs:
 
     runs-on: [windows-latest]
 
+    env:
+      Solution_Name: Parbad.Samples
+
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Setup Dotnet
-      uses: actions/setup-dotnet@v2
+      uses: actions/setup-dotnet@v3
       with:
         dotnet-version: '7.0.x'
-    - name: Setup NuGet
-      uses: NuGet/setup-nuget@v1.0.5
     - name: Setup Node
       uses: actions/setup-node@v3
       with:
         node-version: 14
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1.0.2
     - name: Restore
-      run: nuget restore Parbad.Samples.sln
+      run: msbuild $env:Solution_Name /t:Restore
     - name: Build
-      run: dotnet build Parbad.Samples.sln
+      run: msbuild $env:Solution_Name
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
