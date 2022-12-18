@@ -41,4 +41,5 @@ jobs:
         username: ssoltani
         password: ${{ secrets.DOCKER_TOKEN }}
     - name: Docker push
+      if: github.event_name != 'pull_request'
       run: docker push ssoltani/parbad.samples.aspnetcore:latest
