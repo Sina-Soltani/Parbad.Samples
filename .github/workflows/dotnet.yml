@@ -9,10 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: [windows-latest]
-
-    env:
-      Solution_Name: Parbad.Samples.sln
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout
@@ -21,15 +18,15 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: '7.0.x'
-    - name: Setup MSBuild
-      uses: microsoft/setup-msbuild@v1.0.2
     - name: Setup Node
       uses: actions/setup-node@v3
       with:
         node-version: 14
     - name: Restore
-      run: msbuild $env:Solution_Name /t:Restore
-    - name: Build
-      run: msbuild $env:Solution_Name
+      run: dotnet restore
+    - name: Build Parbad.Sample.EntityFrameworkCore
+      run: dotnet build Storage\Parbad.Sample.EntityFrameworkCore\Parbad.Sample.EntityFrameworkCore.csproj
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: |
+        cd Web/Parbad.Sample.Docker
+        docker build . -t ssoltani/parbad.samples.aspnetcore
