@@ -12,7 +12,7 @@ jobs:
     runs-on: [windows-latest]
 
     env:
-      Solution_Name: Parbad.Samples
+      Solution_Name: Parbad.Samples.sln
 
     steps:
     - name: Checkout
