@@ -9,15 +9,37 @@ on:
 jobs:
   build:
 
-    runs-on: [windows-latest]
+    runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup MS Build
-      uses: microsoft/setup-msbuild@v1
-    - name: Setup NuGet
-      uses: NuGet/setup-nuget@v1.0.5
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Setup Dotnet
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '7.0.x'
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 14
     - name: Restore
-      run: nuget restore Parbad.Samples.sln
-    - name: Build
-      run: msbuild Parbad.Samples.sln
+      run: dotnet restore
+    - name: Build Parbad.Sample.EntityFrameworkCore
+      run: dotnet build Storage/Parbad.Sample.EntityFrameworkCore/Parbad.Sample.EntityFrameworkCore.csproj
+    - name: Build Parbad.Sample.AspNetCore
+      run: dotnet build Web/Parbad.Sample.AspNetCore/Parbad.Sample.AspNetCore.csproj
+    - name: Build Parbad.Sample.Angular
+      run: dotnet build Web/Parbad.Sample.Angular/Parbad.Sample.Angular.csproj   
+    - name: Docker build
+      run: |
+        cd Web/Parbad.Sample.Docker
+        docker build . -t ssoltani/parbad.samples.aspnetcore:latest
+    - name: Docker login
+      if: github.event_name != 'pull_request'
+      uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
+      with:
+        username: ssoltani
+        password: ${{ secrets.DOCKER_TOKEN }}
+    - name: Docker push
+      if: github.event_name != 'pull_request'
+      run: docker push ssoltani/parbad.samples.aspnetcore:latest

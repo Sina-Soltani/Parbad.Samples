@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Parbad.Builder;
+using Parbad.Gateway.IdPay;
 using Parbad.Gateway.ParbadVirtual;
 using Parbad.Gateway.ZarinPal;
 
@@ -23,6 +24,17 @@ builder.Services.AddParbad()
                });
 
            gateways
+               .AddIdPay()
+               .WithAccounts(accounts =>
+               {
+                   accounts.AddInMemory(account =>
+                   {
+                       account.Api = "API";
+                       account.IsTestAccount = true;
+                   });
+               });
+
+           gateways
                .AddParbadVirtual()
                .WithOptions(options => options.GatewayPath = "/MyVirtualGateway");
        })
@@ -31,6 +43,7 @@ builder.Services.AddParbad()
 
 var host = builder.Build();
 
+host.UseStaticFiles();
 host.MapDefaultControllerRoute();
 
 host.UseParbadVirtualGateway();

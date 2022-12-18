@@ -31,6 +31,7 @@ builder.Services.AddParbad()
 
 var host = builder.Build();
 
+host.UseStaticFiles();
 host.MapDefaultControllerRoute();
 
 host.UseParbadVirtualGateway();

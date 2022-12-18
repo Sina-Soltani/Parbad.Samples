@@ -2,6 +2,7 @@
 {
     public enum Gateways
     {
+        IdPay,
         ZarinPal,
         ParbadVirtual
     }
