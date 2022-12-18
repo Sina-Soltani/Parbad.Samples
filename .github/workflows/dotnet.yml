@@ -30,12 +30,12 @@ jobs:
       run: dotnet build Web/Parbad.Sample.AspNetCore/Parbad.Sample.AspNetCore.csproj
     - name: Build Parbad.Sample.Angular
       run: dotnet build Web/Parbad.Sample.Angular/Parbad.Sample.Angular.csproj   
-    - name: Build Docker image
+    - name: Docker build
       run: |
         cd Web/Parbad.Sample.Docker
         docker build . -t ssoltani/parbad.samples.aspnetcore:latest
     - name: Docker login
-      #if: github.event_name != 'pull_request'
+      if: github.event_name != 'pull_request'
       uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
       with:
         username: ssoltani
