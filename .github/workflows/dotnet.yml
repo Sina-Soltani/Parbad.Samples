@@ -26,7 +26,11 @@ jobs:
       run: dotnet restore
     - name: Build Parbad.Sample.EntityFrameworkCore
       run: dotnet build Storage/Parbad.Sample.EntityFrameworkCore/Parbad.Sample.EntityFrameworkCore.csproj
-#    - name: Build the Docker image
-#      run: |
-#        cd Web/Parbad.Sample.Docker
-#        docker build . -t ssoltani/parbad.samples.aspnetcore
+    - name: Build Parbad.Sample.AspNetCore
+      run: dotnet build Web/Parbad.Sample.AspNetCore/Parbad.Sample.AspNetCore.csproj
+    - name: Build Parbad.Sample.Angular
+      run: dotnet build Web/Parbad.Sample.Angular/Parbad.Sample.Angular.csproj   
+    - name: Build Docker image
+      run: |
+        cd Web/Parbad.Sample.Docker
+        docker build . -t ssoltani/parbad.samples.aspnetcore
