@@ -22,6 +22,9 @@ namespace Parbad.Sample.WebForm
             if (Is_There_Still_Product_In_Shop(invoice.TrackingNumber))
             {
                 var verifyResult = await StaticOnlinePayment.Instance.VerifyAsync(invoice);
+                
+                // Note: Save the verifyResult.TransactionCode in your database.
+                
                 result = verifyResult;
                 transactionCode = verifyResult.TransactionCode;
                 status = verifyResult.Status.ToString();

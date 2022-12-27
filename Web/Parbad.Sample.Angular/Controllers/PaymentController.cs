@@ -42,6 +42,8 @@ namespace Parbad.Sample.Angular.Controllers
                 }
             });
 
+            // Note: Save the result.TrackingNumber in your database.
+            
             _orderRepository.AddOrder(new Order
             {
                 PaymentTrackingNumber = result.TrackingNumber,
@@ -70,6 +72,8 @@ namespace Parbad.Sample.Angular.Controllers
             {
                 var verifyResult = await _onlinePayment.VerifyAsync(invoice);
 
+                // Note: Save the verifyResult.TransactionCode in your database.
+                
                 _orderRepository.UpdateOrder(order, verifyResult.IsSucceed, verifyResult.Message, verifyResult.TransactionCode);
             }
             else
