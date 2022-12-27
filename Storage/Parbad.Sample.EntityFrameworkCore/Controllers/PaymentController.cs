@@ -42,7 +42,7 @@ namespace Parbad.Sample.EntityFrameworkCore.Controllers
                 }
             });
 
-            // Save the result.TrackingNumber in your database.
+            // Note: Save the result.TrackingNumber in your database.
 
             if (result.IsSucceed)
             {
@@ -75,6 +75,8 @@ namespace Parbad.Sample.EntityFrameworkCore.Controllers
 
             var verifyResult = await _onlinePayment.VerifyAsync(invoice);
 
+            // Note: Save the verifyResult.TransactionCode in your database.
+            
             return View(verifyResult);
         }
 

@@ -42,6 +42,8 @@ namespace Parbad.Sample.WebForm
 
             if (result.IsSucceed)
             {
+                // Note: Save the result.TrackingNumber in your database.
+                
                 await result.GatewayTransporter.TransportAsync();
             }
             else

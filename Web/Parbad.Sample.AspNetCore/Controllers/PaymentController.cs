@@ -28,12 +28,10 @@ namespace Parbad.Sample.AspNetCore.Controllers
 
             var result = await _onlinePayment.RequestAsync(invoice =>
             {
-                invoice
-                    .SetZarinPalData("Description")
-                    .SetCallbackUrl(callbackUrl)
-                    .UseAutoIncrementTrackingNumber()
-                    .SetAmount(1000)
-                    .SetGateway(viewModel.SelectedGateway.ToString());
+                invoice.SetZarinPalData("Description")
+                       .SetCallbackUrl(callbackUrl)
+                       .SetAmount(viewModel.Amount)
+                       .SetGateway(viewModel.SelectedGateway.ToString());
 
                 if (viewModel.GenerateTrackingNumberAutomatically)
                 {
@@ -45,7 +43,7 @@ namespace Parbad.Sample.AspNetCore.Controllers
                 }
             });
 
-            // Save the result.TrackingNumber in your database.
+            // Note: Save the result.TrackingNumber in your database.
 
             if (result.IsSucceed)
             {
@@ -78,6 +76,8 @@ namespace Parbad.Sample.AspNetCore.Controllers
 
             var verifyResult = await _onlinePayment.VerifyAsync(invoice);
 
+            // Note: Save the verifyResult.TransactionCode in your database.
+            
             return View(verifyResult);
         }
 
