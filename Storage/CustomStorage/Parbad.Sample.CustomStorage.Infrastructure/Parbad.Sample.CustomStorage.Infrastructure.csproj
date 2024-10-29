@@ -1,11 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Parbad.Storage.Abstractions" Version="1.1.0" />
+    <PackageReference Include="Parbad.Storage.Abstractions" Version="1.2.0" />
   </ItemGroup>
 
 </Project>
