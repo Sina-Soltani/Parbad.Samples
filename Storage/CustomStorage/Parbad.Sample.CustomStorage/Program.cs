@@ -1,17 +1,27 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Hosting;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Parbad.Builder;
+using Parbad.Gateway.ParbadVirtual;
+using Parbad.Sample.CustomStorage.Infrastructure;
 
-namespace Parbad.Sample.CustomStorage
-{
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            CreateWebHostBuilder(args).Build().Run();
-        }
+var builder = WebApplication.CreateBuilder(args);
 
-        public static IHostBuilder CreateWebHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(builder => builder.UseStartup<Startup>());
-    }
-}
+builder.Services.AddControllersWithViews();
+
+builder.Services.AddParbad()
+       .ConfigureGateways(gateways =>
+                          {
+                              gateways.AddParbadVirtual()
+                                      .WithOptions(options => options.GatewayPath = "/virtual");
+                          })
+       .ConfigureHttpContext(httpContext => httpContext.UseDefaultAspNetCore())
+       .ConfigureStorage(storage => storage.AddStorage<MyStorage>(ServiceLifetime.Transient));
+
+var app = builder.Build();
+
+app.UseRouting();
+app.UseStaticFiles();
+app.MapDefaultControllerRoute().WithStaticAssets();
+app.UseParbadVirtualGateway();
+
+await app.RunAsync();
