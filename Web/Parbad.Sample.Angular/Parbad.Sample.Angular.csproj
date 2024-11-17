@@ -15,10 +15,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="8.0.10" />
-    <PackageReference Include="Parbad" Version="3.9.2" />
-    <PackageReference Include="Parbad.AspNetCore" Version="1.4.0" />
-    <PackageReference Include="Parbad.Gateway.ZarinPal" Version="1.5.0" />
-    <PackageReference Include="Parbad.Storage.Cache" Version="1.4.0" />
+    <PackageReference Include="Parbad" Version="3.10.0" />
+    <PackageReference Include="Parbad.AspNetCore" Version="1.5.0" />
+    <PackageReference Include="Parbad.Storage.Cache" Version="1.5.0" />
   </ItemGroup>
 
   <ItemGroup>

@@ -56,7 +56,7 @@ public class PaymentController : Controller
     {
         var invoice = await _onlinePayment.FetchAsync();
 
-        // Check if the invoice is new or it's already processed before.
+        // Check if the invoice is new, or it's already processed before.
         if (invoice.Status != PaymentFetchResultStatus.ReadyForVerifying)
         {
             // You can also see if the invoice is already verified before.
